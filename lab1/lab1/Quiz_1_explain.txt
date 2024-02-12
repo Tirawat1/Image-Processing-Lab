@@ -1,0 +1,12 @@
+hawk = imread("hawk.jpg");
+kitty = imread("kitty.jpg");
+
+hawk = bitshift(hawk,-2);[00111111]
+hawk = bitshift(hawk,2);[11111100]
+kitty = bitshift(kitty,-6);[00000011]
+
+encoded = bitor(hawk,kitty); [11111100] (hawk) + [00000011] (kitty) = new picture that have kitty hidden
+
+hidden = bitshift(encoded, 6);[11(kitty) 000000(hawk)]
+
+imshow([encoded, hidden]);
